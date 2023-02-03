@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_last.c                                         :+:      :+:    :+:   */
+/*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 22:00:22 by psoares-          #+#    #+#             */
-/*   Updated: 2022/12/30 22:15:29 by psoares-         ###   ########.fr       */
+/*   Created: 2023/01/23 18:49:27 by psoares-          #+#    #+#             */
+/*   Updated: 2023/01/24 11:21:15 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../../ft_push_swap.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstnew(int content)
 {
-	if (!lst)
-		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*new;
+
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

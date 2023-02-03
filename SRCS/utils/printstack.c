@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_delone.c                                       :+:      :+:    :+:   */
+/*   printstack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 16:33:11 by psoares-          #+#    #+#             */
-/*   Updated: 2023/01/02 16:33:29 by psoares-         ###   ########.fr       */
+/*   Created: 2022/12/30 20:55:31 by psoares-          #+#    #+#             */
+/*   Updated: 2023/01/24 11:36:53 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../../ft_push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void print_stack(t_list **stack)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	t_list *tmp = *stack;
+
+	while(tmp)
+	{
+		printf("%d\n", tmp->content);
+		tmp = tmp->next;
+	}
 }
+
+void    printstacks_all(t_list **stack_A, t_list **stack_B)
+{
+    write(1, "\t\t---STACK A---\t\t\n", 18);
+    print_stack(stack_A);
+    write(1, "\t\t---STACK B---\t\t\n", 18);
+    print_stack(stack_B);
+}
+

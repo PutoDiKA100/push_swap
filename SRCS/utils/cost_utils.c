@@ -1,19 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_add_front.c                                    :+:      :+:    :+:   */
+/*   cost_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 21:13:15 by psoares-          #+#    #+#             */
-/*   Updated: 2022/12/30 21:14:43 by psoares-         ###   ########.fr       */
+/*   Created: 2023/01/26 14:29:02 by psoares-          #+#    #+#             */
+/*   Updated: 2023/01/30 17:26:11 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../../ft_push_swap.h"
 
-int	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
-}

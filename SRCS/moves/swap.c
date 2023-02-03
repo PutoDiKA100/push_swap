@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printstack.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 20:55:31 by psoares-          #+#    #+#             */
-/*   Updated: 2023/01/02 18:45:47 by psoares-         ###   ########.fr       */
+/*   Created: 2022/12/05 12:09:37 by psoares-          #+#    #+#             */
+/*   Updated: 2023/01/24 11:37:17 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../../ft_push_swap.h"
 
-void print_stack(t_list **stack)
+void	ft_swap(t_list *stack, int option)
 {
-	t_list *tmp = *stack;
-
-	while(tmp)
-	{
-		printf("%d\n", tmp->content);
-		tmp = tmp->next;
-	}
+	stack->content ^= stack->next->content;
+	stack->next->content ^=stack->content;
+	stack->content ^=stack->next->content;
+	if (option == 1)
+		write(1, "sa\n", 3);
+	if (option == 2)
+		write(1, "sb\n", 3);
 }
 
-void    printstacks_all(t_list **stack_A, t_list **stack_B)
+void	ft_ss(t_list *stack_A, t_list *stack_B, int option)
 {
-    write(1, "\t\t---STACK A---\t\t\n", 18);
-    print_stack(stack_A);
-    write(1, "\t\t---STACK B---\t\t\n", 18);
-    print_stack(stack_B);
+	(void)option;
+	ft_swap(stack_A, 0);
+	ft_swap(stack_B, 0);
+	write(1, "ss\n", 3);
 }
-
