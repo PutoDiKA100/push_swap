@@ -6,7 +6,7 @@
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:35:39 by psoares-          #+#    #+#             */
-/*   Updated: 2023/02/03 15:02:47 by psoares-         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:18:13 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ void	place_to_top(t_list **a, t_list **b, t_list *elem)
 	t_list	*vizinho;
 
 	vizinho = nearest(*a, elem);
-	while (vizinho != *a && vizinho != *b)
 	
+	/*while (vizinho != *a && elem != *b)
+	{
+		if (optimization(a, b, elem, vizinho))
+			continue;
+		break ;
+	}*/
 	while (vizinho != *a)
 	{
 		if (toprrcost(*a, vizinho) < toprcost(*a, vizinho))
@@ -75,7 +80,11 @@ void	vai_po_b_crlh(t_list **a, t_list **b, int len, int abs_mean)
 	while (ft_lstsize(*a) > 3)
 	{
 		if ((*a)->content < media(*a))
+		{
 			ft_push(a, b, 2);
+			if ((*b)->content < media(*b))
+				ft_rotate(b);
+		}
 		else
 			ft_rotate(a);
 	}

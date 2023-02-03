@@ -6,7 +6,7 @@
 /*   By: psoares- <psoares-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:44:09 by psoares-          #+#    #+#             */
-/*   Updated: 2023/02/03 14:09:13 by psoares-         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:12:33 by psoares-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	toprrcost(t_list *stack, t_list *elem);
 int	toprcost(t_list *stack, t_list *elem);
 t_list	*get_best_elem(t_list **a, t_list **b);
 t_list	*nearest(t_list *stack, t_list *elem);
+int	optimization(t_list **a, t_list **b, t_list *elem, t_list *after_me);
+
 //sort small
 void	sort3(t_list **stack_A);
 void	sort5(t_list **stack_a);
@@ -78,6 +80,7 @@ void	ft_push(t_list **stack_src, t_list **stack_dest, int option);
 void	ft_revrotate(t_list **stack);
 void	ft_rotate(t_list **stack);
 void	ft_swap(t_list *stack, int option);
-
+void	ft_revrotates(t_list **stack_A, t_list **stack_B);
+void	ft_rotates(t_list **stack_A, t_list **stack_B);
 
 #endif
